@@ -1,2 +1,35 @@
-<div id="map"></div>
+<div class="row">
+  <div class="col">
+    <div id="map"></div>
+  </div>
+  <div class="col">
+    <form [formGroup]="addressForm">
+      <label class="form-label">Region</label>
+      <input type="text" class="form-control" formControlName="region">
+      <label class="form-label">Provincia</label>
+      <input type="text" class="form-control" formControlName="province">
+      <label class="form-label">Municipio</label>
+      <input type="text" class="form-control" formControlName="municipio">
+      <label class="form-label">Ciudad</label>
+      <input type="text" class="form-control" formControlName="city">
+      <label class="form-label">Numero Casa</label>
+      <input type="text" class="form-control" formControlName="houseNum">
+      <label class="form-label">Direccion completa</label>
+      <input type="text" class="form-control" formControlName="fullAddress">
+      <label class="form-label">Codigo postal</label>
+      <input type="text" class="form-control" formControlName="codPostal">
+
+      <button class="btn btn-success" (click)="saveAddress()">Aceptar</button>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <form [formGroup]="coordsForm">
+    <label for="">Coordenada Latitud</label>
+    <input type="text" class="form-control" formControlName="coordX">
+    <label for="">Coordenada Longitud</label>
+    <input type="text" class="form-control" formControlName="coordY">
+    <button class="btn btn-success" (click)="searchByCoords()">Buscar</button>
+  </form>
+</div>
 

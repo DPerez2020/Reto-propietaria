@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,12 @@ export class AddressService {
 
   constructor(private http:HttpClient) { }
 
-  public translateAddress(point:any){
+  public translateAddress(point:any):Observable<any>{
     return this.http.get(`https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=${point}
     &f=json&token=${this._token}`);
+  }
+
+  public saveAddress(address:any):Observable<any>{
+    return this.http.post("https://localhost:7029/api/Address",address);
   }
 }
